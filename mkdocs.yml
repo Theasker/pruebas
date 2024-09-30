@@ -1,5 +1,7 @@
 site_name: Mis apuntes
 
+docs_dir: .
+
 theme:
   name: readthedocs
   language: es
