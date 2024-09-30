@@ -23,7 +23,7 @@ jobs:
         echo "</head>" >> index.html
         echo "<body>" >> index.html
         echo "  <h1>¡Hola, este sitio ha sido generado automáticamente!</h1>" >> index.html
-        echo "  <p>Bienvenido a mi sitio web simple generado por GitHub Actions.</p>" >> index.html
+        echo "  <p>Bienvenido a mi sitio web simple generado por GitHub Actions ... otra vez.</p>" >> index.html
         echo "</body>" >> index.html
         echo "</html>" >> index.html
     # Paso 3: Configurar GitHub Pages
