@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # Paso 1: Checkout del repositorio
-    - name: Checkout repository
-      uses: actions/checkout@v4
+#    - name: Checkout repository
+#      uses: actions/checkout@v4
     # Paso 2: Crear el archivo index.html
     - name: Create index.html
       run: |
