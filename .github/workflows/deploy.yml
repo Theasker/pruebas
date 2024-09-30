@@ -18,6 +18,6 @@ jobs:
           python-version: 3.x
       - run: pip install mkdocs
       - run: mkdir docs
-      - run: mv -a * docs
+      - run: mv * docs
       - run: mv docs/mkdocs.yml .
           
