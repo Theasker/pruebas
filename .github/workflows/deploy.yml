@@ -1,0 +1,34 @@
+name: Genera y despliega to GitHub Pages
+
+# Cuando ejecutar el workflow: en cada push a la rama principal (main)
+on:
+  push:
+    branches:
+      - master
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    # Paso 1: Checkout del repositorio
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    # Paso 2: Crear el archivo index.html
+    - name: Create index.html
+      run: |
+        echo "<!DOCTYPE html>" > index.html
+        echo "<html>" >> index.html
+        echo "<head>" >> index.html
+        echo "  <title>Mi Sitio Web Generado</title>" >> index.html
+        echo "</head>" >> index.html
+        echo "<body>" >> index.html
+        echo "  <h1>¡Hola, este sitio ha sido generado automáticamente!</h1>" >> index.html
+        echo "  <p>Bienvenido a mi sitio web simple generado por GitHub Actions.</p>" >> index.html
+        echo "</body>" >> index.html
+        echo "</html>" >> index.html
+    # Paso 3: Configurar GitHub Pages
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
