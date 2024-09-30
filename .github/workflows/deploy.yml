@@ -12,9 +12,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - run: touch root.txt
       - run: rm -rf *
       - run: mkdir docs && cd docs
-      - run: echo "Hola mundo" > temp.txt
+      - run: touch docs.txt
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
 #        with:
