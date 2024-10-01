@@ -1,8 +1,7 @@
 site_name: Mis apuntes
 
 theme:
-  name: readthedocs
-  language: es
+  name: windmill-dark
 
 plugins:
   - search
