@@ -27,18 +27,14 @@ jobs:
         run: |
           mkdir -p docs  # Crea el directorio docs donde se hará el checkout
           git clone https://github.com/Theasker/pruebas.git temp-dir
-          mv temp-dir/* docs/      # Mueve los archivos a la carpeta docs
-          rm -rf temp-dir          # Elimina el directorio temporal
-      - name: List files in docs
-        run: ls -la docs          # Lista los archivos en el directorio docs
-    
-    # - name: Copy mkdocs.yml to root
-    #   run: |
-    #     mv docs/mkdocs.yml .  # Crea el directorio docs donde se hará el checkout
-    #     date >> docs/README.md
-    #     echo "\nHola mundo" >> docs/SUMMARY.md
+          mv temp-dir/* docs/         # Mueve los archivos a la carpeta docs
+          rm -rf temp-dir             # Elimina el directorio temporal
+          ls -la docs                 # Lista los archivos en el directorio docs
+          mv docs/mkdocs.yml .        # Muevo el fichero docs/mkdocs.yml a la raiz para el build
+          date
+          echo "# Generado el: $(date)" > docs/fecha.md
 
-    # # Paso 2: Instalar Python y MkDocs
+    # Paso 2: Instalar Python y MkDocs
     # - name: Set up Python and Install MkDocs
     #   uses: actions/setup-python@v2
     #   with:
@@ -47,11 +43,18 @@ jobs:
     #     pip install mkdocs
     #     # pip install mkdocs-material  # Si usas el tema Material para MkDocs
     #     pip install mkdocs-windmill-dark
+      - name: Install Python
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3 python3-pip  # Instala Python y pip
+          pip3 install mkdocs
+          # pip3 install mkdocs-material  # Si usas el tema Material para MkDocs
+          pip3 install mkdocs-windmill-dark
 
-    # # Paso 3: Build la documentación con MkDocs
-    # - name: Build the documentation
-    #   run: |
-    #     mkdocs build
+    # Paso 3: Build la documentación con MkDocs
+    - name: Build the documentation
+      run: |
+        mkdocs build
 
     # # Paso 4: Desplegar en la rama gh-pages
     # - name: Deploy to GitHub Pages
@@ -59,3 +62,10 @@ jobs:
     #   with:
     #     github_token: ${{ secrets.GITHUB_TOKEN }}
     #     publish_dir: ./site
+    - name: Copy files to gh-pages branch
+      run: |
+        cp -r ./site/* ./repo/
+        cd repo
+        git add .
+        git commit -m "Deploy to GitHub Pages"
+        git push origin gh-pages --force
