@@ -11,12 +11,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Create working directory
+        run: mkdir -p docs  # Crea el directorio docs donde se hará el checkout
+
     # Paso 1: Checkout del repositorio en la rama master
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
         ref: master
-        path: /docs
+        path: docs
 
     # Paso 2: Instalar Python y MkDocs
     - name: Set up Python and Install MkDocs
