@@ -3,5 +3,6 @@ site_name: Mis apuntes
 plugins:
   - search
 
-#theme:
+theme:
 #  name: windmill-dark
+  name: darcula
