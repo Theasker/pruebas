@@ -23,6 +23,7 @@ jobs:
     
     - name: Copy mkdocs.yml to root
       run: mv docs/mkdocs.yml .  # Crea el directorio docs donde se hará el checkout
+      run: date >> docs/README.md
 
     # Paso 2: Instalar Python y MkDocs
     - name: Set up Python and Install MkDocs
