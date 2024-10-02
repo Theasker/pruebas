@@ -21,10 +21,11 @@ jobs:
 
     - name: Clone repository manually
       run: |
-        git clone https://github.com/${{ github.repository }} repo
-        cd repo
+        git clone https://github.com/${{ github.repository }} docs
+        echo "Listado después del clone" && git status && ls -la
         git checkout -b gh-pages origin/gh-pages || git checkout --orphan gh-pages
         git rm -rf .         # Limpia el contenido de la rama gh-pages
+        echo "Listado después del 'chechout -b gh-pages origin/gh-pages'" && git status && ls -la
 
     # Paso 2: Instalar Python y MkDocs
     - name: Install Python

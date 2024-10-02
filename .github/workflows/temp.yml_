@@ -19,10 +19,11 @@ jobs:
 
     - name: Clone repository manually
       run: |
-        git clone https://github.com/${{ github.repository }} repo
-        cd repo
+        git clone https://github.com/${{ github.repository }} docs
+        echo "Listado después del clone" && git status && ls -la
         git checkout -b gh-pages origin/gh-pages || git checkout --orphan gh-pages
         git rm -rf .         # Limpia el contenido de la rama gh-pages
+        echo "Listado después del 'chechout -b gh-pages origin/gh-pages'" && git status && ls -la
 
     - name: Install Python
       run: |
@@ -34,6 +35,7 @@ jobs:
     # Paso 3: Build la documentación con MkDocs
     - name: Build the documentation
       run: |
+        cp 
         mkdocs build --site-dir ./site  # Genera los archivos del sitio en ./site
         ls -la ./site                   # Lista los archivos generados en ./site
 
