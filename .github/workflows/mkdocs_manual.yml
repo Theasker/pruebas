@@ -24,20 +24,22 @@ jobs:
         git clone https://github.com/${{ github.repository }} docs
         
 
-    # # Paso 2: Instalar Python y MkDocs
-    # - name: Install Python
-    #   run: |
-    #     sudo apt-get update
-    #     sudo apt-get install -y python3 python3-pip  # Instala Python y pip
-    #     pip3 install mkdocs
-    #     # pip3 install mkdocs-material  # Si usas el tema Material para MkDocs
-    #     pip3 install mkdocs-windmill-dark
+    # Paso 2: Instalar Python y MkDocs
+    - name: Install Python
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y python3 python3-pip tree
+        pip3 install mkdocs
+        # pip3 install mkdocs-material
+        pip3 install mkdocs-windmill-dark
 
-    # # Paso 3: Build la documentación con MkDocs
-    # - name: Build the documentation
-    #   run: |
-    #     mkdocs build --site-dir ./site  # Genera los archivos del sitio en ./site
-    #     ls -la ./site                   # Lista los archivos generados en ./site
+    # Paso 3: Build la documentación con MkDocs
+    - name: Build the documentation
+      run: |
+        mv docs/mkdocs.yml .
+        tree -L 2
+        mkdocs build --site-dir ./site  # Genera los archivos del sitio en ./site
+        tree -L 2                   # Lista los archivos generados en ./site
 
     # - name: Copy files to gh-pages branch
     #   run: |
