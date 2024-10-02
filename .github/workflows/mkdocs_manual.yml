@@ -29,6 +29,8 @@ jobs:
           git clone https://github.com/Theasker/pruebas.git temp-dir
           mv temp-dir/* docs/      # Mueve los archivos a la carpeta docs
           rm -rf temp-dir          # Elimina el directorio temporal
+      - name: List files in docs
+        run: ls -la docs          # Lista los archivos en el directorio docs
     
     # - name: Copy mkdocs.yml to root
     #   run: |
