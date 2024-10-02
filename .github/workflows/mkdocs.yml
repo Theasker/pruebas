@@ -27,8 +27,8 @@ jobs:
         # pip install mkdocs-material  # Si usas el tema Material para MkDocs
         # pip install mkdocs-windmill-dark
         pip install mkdocs-dracula-theme
-    - name: Generate mkdocs.yml
-        run: |
+
+    - run: |
           cat >> mkdocs.yml <<EOF
           theme:
             name: material
