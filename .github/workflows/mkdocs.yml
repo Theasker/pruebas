@@ -27,8 +27,8 @@ jobs:
         # pip install mkdocs-material  # Si usas el tema Material para MkDocs
         # pip install mkdocs-windmill-dark
         pip install mkdocs-dracula-theme
-        echo "theme:" >> mkdocs.yml
-        echo "  name: dracula" >> mkdocs.yml
+#        echo "theme:" >> mkdocs.yml
+#        echo "  name: dracula" >> mkdocs.yml
 
     # Paso 3: Build la documentación con MkDocs
     - name: Build the documentation
