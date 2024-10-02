@@ -22,30 +22,26 @@ jobs:
     - name: Clone repository manually
       run: |
         git clone https://github.com/${{ github.repository }} docs
-        cd docs
-        echo "Listado después del clone" && git status && ls -la
-        git checkout -b gh-pages origin/gh-pages || git checkout --orphan gh-pages
-        git rm -rf .         # Limpia el contenido de la rama gh-pages
-        echo "Listado después del 'chechout -b gh-pages origin/gh-pages'" && git status && ls -la
+        
 
-    # Paso 2: Instalar Python y MkDocs
-    - name: Install Python
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y python3 python3-pip  # Instala Python y pip
-        pip3 install mkdocs
-        # pip3 install mkdocs-material  # Si usas el tema Material para MkDocs
-        pip3 install mkdocs-windmill-dark
+    # # Paso 2: Instalar Python y MkDocs
+    # - name: Install Python
+    #   run: |
+    #     sudo apt-get update
+    #     sudo apt-get install -y python3 python3-pip  # Instala Python y pip
+    #     pip3 install mkdocs
+    #     # pip3 install mkdocs-material  # Si usas el tema Material para MkDocs
+    #     pip3 install mkdocs-windmill-dark
 
-    # Paso 3: Build la documentación con MkDocs
-    - name: Build the documentation
-      run: |
-        mkdocs build --site-dir ./site  # Genera los archivos del sitio en ./site
-        ls -la ./site                   # Lista los archivos generados en ./site
+    # # Paso 3: Build la documentación con MkDocs
+    # - name: Build the documentation
+    #   run: |
+    #     mkdocs build --site-dir ./site  # Genera los archivos del sitio en ./site
+    #     ls -la ./site                   # Lista los archivos generados en ./site
 
-    - name: Copy files to gh-pages branch
-      run: |
-        cp -r ./site/* .                          # Copia los archivos generados en el directorio raíz de `repo`
-        git add .                                 # Añade todos los archivos
-        git commit -m "Deploy to GitHub Pages"    # Realiza el commit
-        git push origin gh-pages --force          # Empuja los cambios a gh-pages
+    # - name: Copy files to gh-pages branch
+    #   run: |
+    #     cp -r ./site/* .                          # Copia los archivos generados en el directorio raíz de `repo`
+    #     git add .                                 # Añade todos los archivos
+    #     git commit -m "Deploy to GitHub Pages"    # Realiza el commit
+    #     git push origin gh-pages --force          # Empuja los cambios a gh-pages
