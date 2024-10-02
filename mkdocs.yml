@@ -1,7 +1,7 @@
 site_name: Mis apuntes
 
-theme:
-  name: windmill-dark
-
 plugins:
   - search
+
+#theme:
+#  name: windmill-dark
