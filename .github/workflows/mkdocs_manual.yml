@@ -22,6 +22,7 @@ jobs:
     - name: Clone repository manually
       run: |
         git clone https://github.com/${{ github.repository }} docs
+        cd docs
         echo "Listado después del clone" && git status && ls -la
         git checkout -b gh-pages origin/gh-pages || git checkout --orphan gh-pages
         git rm -rf .         # Limpia el contenido de la rama gh-pages
