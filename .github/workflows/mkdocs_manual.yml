@@ -51,9 +51,10 @@ jobs:
     - name: Build the documentation
       run: |
         mkdocs build
+        ls -la
 
-    # # Paso 4: Desplegar en la rama gh-pages
-    # - name: Deploy to GitHub Pages
+    # Paso 4: Desplegar en la rama gh-pages
+    - name: Deploy to GitHub Pages
     #   uses: peaceiris/actions-gh-pages@v3
     #   with:
     #     github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -61,6 +62,6 @@ jobs:
     - name: Copy files to gh-pages branch
       run: |
         cd site
-        git add .
+        git add ./site
         git commit -m "Deploy to GitHub Pages"
         git push origin gh-pages --force
