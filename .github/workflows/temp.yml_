@@ -10,10 +10,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    steps:
-    
+    steps:    
     # Paso 1: Git clone del repositorio en la rama master
-    
     - name: Set up Git
       run: |
         git config --global user.name "Theasker"
@@ -26,13 +24,11 @@ jobs:
         git checkout -b gh-pages origin/gh-pages || git checkout --orphan gh-pages
         git rm -rf .         # Limpia el contenido de la rama gh-pages
 
-    # Paso 2: Instalar Python y MkDocs
     - name: Install Python
       run: |
         sudo apt-get update
         sudo apt-get install -y python3 python3-pip  # Instala Python y pip
         pip3 install mkdocs
-        # pip3 install mkdocs-material  # Si usas el tema Material para MkDocs
         pip3 install mkdocs-windmill-dark
 
     # Paso 3: Build la documentación con MkDocs
@@ -42,8 +38,9 @@ jobs:
         ls -la ./site                   # Lista los archivos generados en ./site
 
     - name: Copy files to gh-pages branch
-      run: |
-        cp -r ./site/* .                          # Copia los archivos generados en el directorio raíz de `repo`
-        git add .                                 # Añade todos los archivos
-        git commit -m "Deploy to GitHub Pages"    # Realiza el commit
-        git push origin gh-pages --force          # Empuja los cambios a gh-pages
+      run: |       
+        cd repo                         # Entra al repo
+        cp -r ./site/* .                # Copia los archivos generados en el directorio raíz de `repo`
+        git add .                       # Añade todos los archivos
+        git commit -m "Deploy to GitHub Pages"  # Realiza el commit
+        git push origin gh-pages --force        # Empuja los cambios a gh-pages
