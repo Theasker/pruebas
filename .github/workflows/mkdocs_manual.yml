@@ -60,7 +60,7 @@ jobs:
     #     publish_dir: ./site
     - name: Copy files to gh-pages branch
       run: |
-        cd repo
+        cd site
         git add .
         git commit -m "Deploy to GitHub Pages"
         git push origin gh-pages --force
