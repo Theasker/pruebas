@@ -54,7 +54,7 @@ jobs:
         ls -la
 
     # Paso 4: Desplegar en la rama gh-pages
-    - name: Deploy to GitHub Pages
+    #- name: Deploy to GitHub Pages
     #   uses: peaceiris/actions-gh-pages@v3
     #   with:
     #     github_token: ${{ secrets.GITHUB_TOKEN }}
