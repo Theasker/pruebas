@@ -13,26 +13,22 @@ jobs:
     steps:
     
     # Paso 1: Git clone del repositorio en la rama master
-    # - name: Checkout repository
-    #   uses: actions/checkout@v2
-    #   with:
-    #     ref: master
-    #     path: docs
-      - name: Set up Git
-        run: |
-          git config --global user.name "Theasker"
-          git config --global user.email "theasker@gmail.com"
+    
+    - name: Set up Git
+      run: |
+        git config --global user.name "Theasker"
+        git config --global user.email "theasker@gmail.com"
 
-      - name: Clone repository manually
-        run: |
-          mkdir -p docs  # Crea el directorio docs donde se hará el checkout
-          git clone https://github.com/Theasker/pruebas.git temp-dir
-          mv temp-dir/* docs/         # Mueve los archivos a la carpeta docs
-          rm -rf temp-dir             # Elimina el directorio temporal
-          ls -la docs                 # Lista los archivos en el directorio docs
-          mv docs/mkdocs.yml .        # Muevo el fichero docs/mkdocs.yml a la raiz para el build
-          date
-          echo "# Generado el: $(date)" > docs/fecha.md
+    - name: Clone repository manually
+      run: |
+        mkdir -p docs  # Crea el directorio docs donde se hará el checkout
+        git clone https://github.com/Theasker/pruebas.git temp-dir
+        mv temp-dir/* docs/         # Mueve los archivos a la carpeta docs
+        rm -rf temp-dir             # Elimina el directorio temporal
+        ls -la docs                 # Lista los archivos en el directorio docs
+        mv docs/mkdocs.yml .        # Muevo el fichero docs/mkdocs.yml a la raiz para el build
+        date
+        echo "# Generado el: $(date)" > docs/fecha.md
 
     # Paso 2: Instalar Python y MkDocs
     # - name: Set up Python and Install MkDocs
@@ -43,13 +39,13 @@ jobs:
     #     pip install mkdocs
     #     # pip install mkdocs-material  # Si usas el tema Material para MkDocs
     #     pip install mkdocs-windmill-dark
-      - name: Install Python
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y python3 python3-pip  # Instala Python y pip
-          pip3 install mkdocs
-          # pip3 install mkdocs-material  # Si usas el tema Material para MkDocs
-          pip3 install mkdocs-windmill-dark
+    - name: Install Python
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y python3 python3-pip  # Instala Python y pip
+        pip3 install mkdocs
+        # pip3 install mkdocs-material  # Si usas el tema Material para MkDocs
+        pip3 install mkdocs-windmill-dark
 
     # Paso 3: Build la documentación con MkDocs
     - name: Build the documentation
