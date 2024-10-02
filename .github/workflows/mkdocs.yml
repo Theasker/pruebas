@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - name: Create working directory
-        run: mkdir -p docs  # Crea el directorio docs donde se hará el checkout
+      run: mkdir -p docs  # Crea el directorio docs donde se hará el checkout
 
     # Paso 1: Checkout del repositorio en la rama master
     - name: Checkout repository
