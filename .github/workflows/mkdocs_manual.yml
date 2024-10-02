@@ -41,9 +41,11 @@ jobs:
         mkdocs build --site-dir ./site  # Genera los archivos del sitio en ./site
         tree -L 2                   # Lista los archivos generados en ./site
 
-    # - name: Copy files to gh-pages branch
-    #   run: |
-    #     cp -r ./site/* .                          # Copia los archivos generados en el directorio raíz de `repo`
-    #     git add .                                 # Añade todos los archivos
-    #     git commit -m "Deploy to GitHub Pages"    # Realiza el commit
-    #     git push origin gh-pages --force          # Empuja los cambios a gh-pages
+    - name: Copy files to gh-pages branch
+      run: |
+        git checkout gh-pages || git checkout --orphan gh-pages
+        git rm -rf .
+        cp -r ./site/* .
+        git add .
+        git commit -m "Deploy site to GitHub Pages"
+        git push origin gh-pages --force
