@@ -18,7 +18,7 @@ jobs:
     #   with:
     #     ref: master
     #     path: docs
-    - name: Set up Git
+      - name: Set up Git
         run: |
           git config --global user.name "Theasker"
           git config --global user.email "theasker@gmail.com"
