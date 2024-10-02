@@ -1,1 +1,0 @@
- * **Blackbox**: Generación de código automático gratis (como copilot de Github).https://marketplace.visualstudio.com/items?itemName=Blackboxapp.blackbox
