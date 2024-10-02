@@ -25,6 +25,7 @@ jobs:
       run: |
         mv docs/mkdocs.yml .  # Crea el directorio docs donde se hará el checkout
         date >> docs/README.md
+        echo "\nHola mundo" >> docs/SUMMARY.md
 
     # Paso 2: Instalar Python y MkDocs
     - name: Set up Python and Install MkDocs
