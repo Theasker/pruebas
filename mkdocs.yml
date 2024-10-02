@@ -4,5 +4,4 @@ plugins:
   - search
 
 theme:
-#  name: windmill-dark
-  name: darcula
+  name: windmill-dark
