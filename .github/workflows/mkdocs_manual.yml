@@ -20,7 +20,8 @@ jobs:
 
     - name: Clone repository manually
       run: |
-        git clone --branch master --single-branch https://github.com/${{ github.repository }} docs
+        # git clone --branch master --single-branch https://github.com/${{ github.repository }} docs
+        git clone https://github.com/${{ github.repository }} docs
         echo "pwd" && pwd
         echo "ls -la" && ls -la
         echo "ls -la docs" && ls -la docs
@@ -48,6 +49,10 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         cd docs
-        ls -la
+        mv ../site .
+        echo "ls -la" && ls -la
         git checkout gh-pages
+        echo "ls -la" && ls -la
+        git rm -rf .
+        echo "ls -la" && ls -la
         
