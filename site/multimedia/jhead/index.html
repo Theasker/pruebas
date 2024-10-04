@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>JHead - Mis apuntes</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "JHead", url: "#_top", children: [
+              {title: "Arreglar r\u00e1pidamente las fechas de las fotos con jhead", url: "#arreglar-rapidamente-las-fechas-de-las-fotos-con-jhead" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+      <script src="../../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../multimediaCommands/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../multimediaCommands/" class="btn btn-xs btn-link">
+        Comandos varios sobre multimedia
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../jellyfin/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../jellyfin/" class="btn btn-xs btn-link">
+        Jellyfin
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="jhead">JHead</h1>
+<h2 id="arreglar-rapidamente-las-fechas-de-las-fotos-con-jhead">Arreglar rápidamente las fechas de las fotos con jhead</h2>
+<p>Estándar
+A veces nos encontramos con unas cuantas fotos que tienen la fecha mal puesta. Suele pasar con fotos que no son nuestras, y cuyo propietario no controla mucho y no sabe ni que la cámara tiene hora, no se ha acordado de poner en hora la cámara al cambiar la batería, o cosas así. La solución “estándar” sería importar las fotos a nuestro programa de gestión de fotos favoritos, y retocarlas allí, pero a veces esa no es la mejor opción, y puede ser más fácil arreglar el problema antes de hacer la importación.</p>
+<p>Buscando un programita para estas tareas sencillas, me he encontrado con jhead. Es una utilidad de línea de comandos, sí, pero su uso es muy sencillo y extremadamente rápido para ciertas tareas repetitivas. Por ejemplo, el típico caso de una cámara que tenía la hora mal puesta lo solucionaríamos con algo así como:</p>
+<p><code>jhead -ta+01:30 *.jpg</code></p>
+<p>Así le decimos que nos sume 1h30 a todas las fotos. ¿Que no queremos hacer números? No hay problema, también podemos indicarle la fecha “buena” y la “mala”, y él calcula la diferencia:</p>
+<p><code>jhead -da2014:12:16/13:24-2009:06:06/12:20 *.jpg</code></p>
+<p>También permite cosas más sutiles. Por ejemplo, a veces tenemos un montón de fotos mezcladas de diferentes cámaras, pero sólo una de las cámaras tiene la fecha mal puesta. No hay problema, podemos decirle que sólo actúe sobre las fotos de una cámara en concreto:</p>
+<p><code>jhead -model “FinePix S6500fd” -ta+02.37 *.jpg</code></p>
+<p>O puede que los ficheros no tengan información EXIF porque la cámara es viejuna y no soportaba estas filigranas, pero la fecha de modificación de los ficheros en el sistema de ficheros sí es correcta y queremos incorporarla como fecha EXIF:</p>
+<p><code>jhead -mkexif -dsft *.jpg</code></p>
+<p>En fin, que se pueden hacer muchas cosas de forma muy fácil y rápida. Además, jhead está en todos los repositorios, por lo que la instalación es sencillísima. En definitiva, todo un descubrimiento que nos puede ahorrar tiempo y esfuerzo.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../multimediaCommands/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../multimediaCommands/" class="btn btn-xs btn-link">
+        Comandos varios sobre multimedia
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../jellyfin/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../jellyfin/" class="btn btn-xs btn-link">
+        Jellyfin
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="None">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>
