@@ -21,7 +21,9 @@ jobs:
     - name: Clone repository manually
       run: |
         git clone --branch master --single-branch https://github.com/${{ github.repository }} docs
-        ls -la
+        echo "pwd" && pwd
+        echo "ls -la" && ls -la
+        echo "ls -la docs" && ls -la docs
 
     # Paso 2: Instalar Python y MkDocs
     - name: Install Python
@@ -45,6 +47,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
+        cd docs
         ls -la
         git checkout gh-pages
         
