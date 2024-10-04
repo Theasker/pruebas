@@ -47,11 +47,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         cd docs
+        ls -la
         git checkout gh-pages
-        git rm -rf .
-        git checkout master -- site
-        mv site/* ./
-        rmdir site
-        git add .
-        git commit -m "Copiado contenido de site desde master"
-        git push origin gh-pages
+        
