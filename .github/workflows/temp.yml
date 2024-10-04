@@ -46,5 +46,6 @@ jobs:
         git add .
         echo "=> git commit -m "Deploy MkDocs to GitHub Pages""
         git commit -m "Deploy MkDocs to GitHub Pages"
-        echo "=> git push --force https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages"
-        git push --force https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
+        echo "=> git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages"
+        # git push --force https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
+        git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
