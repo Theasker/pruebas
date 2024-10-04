@@ -55,4 +55,5 @@ jobs:
         echo "ls -la" && ls -la
         git rm -rf .
         echo "ls -la" && ls -la
+        git checkout master -- site
         
