@@ -42,46 +42,17 @@ jobs:
       run: |
         #git config --global user.name "github-actions[bot]"
         #git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        echo "=> cd docs"
         cd docs
+        echo "=> git checkout gh-pages"
         git checkout gh-pages
+        echo "=> git rm -rf ."
         git rm -rf .
+        echo "=> git checkout master -- site"
         git checkout master -- site
+        echo "=> git add ."
         git add .
+        echo "=> git commit -m "Deploy MkDocs to GitHub Pages""
         git commit -m "Deploy MkDocs to GitHub Pages"
+        echo "=> git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages"
         git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
-
-    # # Paso 4: Desplegar en la rama gh-pages
-    # - name: Deploy to GitHub Pages
-    #   run: |
-
-    #     echo "=> git config --global user.name "github-actions[bot]""
-    #     git config --global user.name "github-actions[bot]"
-
-    #     echo "=> git config --global user.email "github-actions[bot]@users.noreply.github.com""
-    #     git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-    #     echo "=> git checkout --orphan gh-pages"
-    #     git checkout --orphan gh-pages
-
-    #             echo "=> cp -r site/* ."
-    #     cp -r site/* .
-
-    #     echo "=> git add ."
-    #     git add .
-
-    #     echo "=> git commit -m "Deploy MkDocs to GitHub Pages""
-    #     git commit -m "Deploy MkDocs to GitHub Pages"
-
-    #     echo "=> git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pagesxi"
-    #     git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
-
-
-    #     # git config --global user.name "github-actions[bot]"
-    #     # git config --global user.email "github-actions[bot]@users.noreply.github.com"
-    #     # git checkout --orphan gh-pages  # Cambiar a la rama gh-pages
-    #     # git rm -rf .  # Eliminar todo en gh-pages para empezar limpio
-    #     # cp -r site/* .  # Copiar todo el contenido de 'site' desde la rama master
-    #     # git add .
-    #     # git commit -m "Deploy MkDocs to GitHub Pages"
-    #     # git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
-
