@@ -14,7 +14,8 @@ jobs:
     # Paso 1: Clonar el repositorio en la rama master
     - name: Checkout repository
       run: |
-        git clone --depth 1 --branch master https://github.com/${{ github.repository }} docs
+        # git clone --depth 1 --branch master https://github.com/${{ github.repository }} docs
+        git clone master https://github.com/${{ github.repository }} docs
         mv docs/mkdocs.yml .  # Mover el archivo mkdocs.yml a la raíz
 
     # Paso 2: Instalar Python y MkDocs
@@ -40,9 +41,9 @@ jobs:
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git checkout --orphan gh-pages  # Cambiar a la rama gh-pages
-        git rm -rf .  # Eliminar todo en gh-pages para empezar limpio
-        mv ../site-temp/* .  # Copiar el contenido de la carpeta temporal
+        git checkout gh-pages
+        git rm -rf .
+        mv ../site-temp/* .
         git add .
         git commit -m "Deploy MkDocs to GitHub Pages"
         git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
