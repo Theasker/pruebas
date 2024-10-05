@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="None">
+    
+    
+    <link rel="shortcut icon" href="./img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Mis apuntes</title>
+    <link href="./css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="./css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="./css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/bootstrap-3.3.7.min.js"></script>
+    <script src="./js/highlight.pack.js"></script>
+    
+      <script src="./js/elasticlunr.min.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '.';
+      var is_top_frame = (window === window.parent);
+        
+        var pageToc = [
+          {title: "Fichero de pruebas", url: "#_top", children: [
+              {title: "Segundo t\u00edtulo", url: "#segundo-titulo" },
+          ]},
+        ];
+
+    </script>
+    <script src="./js/base.js"></script>
+      <script src="search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+<nav class="navbar wm-page-top-frame">
+  <div class="container-fluid wm-top-container">
+    
+    <div class="wm-top-tool pull-right wm-vcenter">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="./search.html">
+        
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
+          ><i class="fa fa-search" aria-hidden="true"></i></button>
+
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <span class="input-group-btn" role="search">
+            
+            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
+            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
+            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
+
+    
+    <div class="wm-top-tool wm-vcenter pull-right wm-small-left">
+      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
+    </div>
+
+    
+    
+
+    
+    <a href="" class="wm-top-brand wm-top-link wm-vcenter">
+      
+      <div class="wm-top-title">
+        Mis apuntes<br>
+        
+      </div>
+    </a>
+  </div>
+</nav>
+
+  <div id="main-content" class="wm-page-top-frame">
+    
+<nav class="wm-toc-pane">
+  
+  <ul class="wm-toctree">
+        <li class="wm-toc-li wm-toc-lev1 "><a href="" class="wm-article-link wm-toc-text">Fichero de pruebas</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="SUMMARY/" class="wm-article-link wm-toc-text">Summary</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Markdown</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="markdown/markdown-es/" class="wm-article-link wm-toc-text">Markdown es</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="markdown/markdown/" class="wm-article-link wm-toc-text">Markdown</a>
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Multimedia</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="multimedia/FreeCAD/" class="wm-article-link wm-toc-text">FreeCAD</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="multimedia/jellyfin/" class="wm-article-link wm-toc-text">Jellyfin</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="multimedia/jhead/" class="wm-article-link wm-toc-text">JHead</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="multimedia/multimediaCommands/" class="wm-article-link wm-toc-text">Comandos varios sobre multimedia</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="multimedia/multimediaVarios/" class="wm-article-link wm-toc-text">Aplicaciones multimedia</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="multimedia/text2mp3/" class="wm-article-link wm-toc-text">Convertir texto a audio en Gentoo</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 wm-toc-opener"><span class="wm-toc-text">Blender</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev3 "><a href="multimedia/Blender/Geometry%20Nodes/" class="wm-article-link wm-toc-text">Geometry Nodes</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="multimedia/Blender/blender/" class="wm-article-link wm-toc-text">Blender</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="multimedia/Blender/blender_TODO/" class="wm-article-link wm-toc-text">Enlaces para visualizar</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="multimedia/Blender/blender_python/" class="wm-article-link wm-toc-text">Python para Blender</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev3 wm-toc-opener"><span class="wm-toc-text">Awesome blender</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev4 "><a href="multimedia/Blender/awesome-blender/" class="wm-article-link wm-toc-text">Index</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev4 "><a href="multimedia/Blender/awesome-blender/CONTRIBUTING/" class="wm-article-link wm-toc-text">About List</a>
+</li>
+  </ul>
+</li>
+
+  </ul>
+</li>
+
+  </ul>
+</li>
+
+  </ul>
+</nav>
+
+    <div class="wm-content-pane">
+      <iframe class="wm-article" name="article"></iframe>
+    </div>
+  </div>
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="SUMMARY/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="SUMMARY/" class="btn btn-xs btn-link">
+        Summary
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="fichero-de-pruebas">Fichero de pruebas</h1>
+<h2 id="segundo-titulo">Segundo título</h2>
+<h3 id="tercer-titulo">Tercer título</h3>
+<h3 id="cuarto-titulo">Cuarto título</h3>
+<p>modificación 1</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="SUMMARY/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="SUMMARY/" class="btn btn-xs btn-link">
+        Summary
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="None">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2024-10-05 22:41:30.844677+00:00
+-->
