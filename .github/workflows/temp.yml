@@ -52,7 +52,7 @@ jobs:
         ls -la
 
         echo "=> rm -rf ."
-        rm -rf .
+        rm -rf *
 
         #echo "=> git checkout master -- site"
         #git checkout master -- site
