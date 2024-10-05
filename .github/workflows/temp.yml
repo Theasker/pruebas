@@ -59,7 +59,7 @@ jobs:
 
         #echo "=> git checkout master -- site"
         #git checkout master -- site
-        cp ../site/* .
+        cp -r ../site/* .
         
         echo "=> git add ."
         git add .
