@@ -15,7 +15,7 @@ jobs:
     - name: Checkout repository
       run: |
         # git clone --depth 1 --branch master https://github.com/${{ github.repository }} docs
-        git clone master https://github.com/${{ github.repository }} docs
+        git clone https://github.com/${{ github.repository }} docs
         mv docs/mkdocs.yml .  # Mover el archivo mkdocs.yml a la raíz
 
     # Paso 2: Instalar Python y MkDocs
