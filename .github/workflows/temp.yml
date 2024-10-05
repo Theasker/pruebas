@@ -56,6 +56,7 @@ jobs:
 
         #echo "=> git checkout master -- site"
         #git checkout master -- site
+        cp ../site .
         
         echo "=> git add ."
         git add .
