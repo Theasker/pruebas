@@ -44,6 +44,8 @@ jobs:
         #git config --global user.email "github-actions[bot]@users.noreply.github.com"
         echo "=> cd docs"
         cd docs
+        echo "=> git clean -fd"
+        git clean -fd
         echo "=> git checkout gh-pages"
         git checkout gh-pages
         echo "=> git rm -rf ."
