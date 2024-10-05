@@ -48,6 +48,8 @@ jobs:
         git clean -fd
         echo "=> git checkout gh-pages"
         git checkout gh-pages
+        echo "=> ls -la"
+        ls -la
         echo "=> git rm -rf ."
         git rm -rf .
         echo "=> git checkout master -- site"
