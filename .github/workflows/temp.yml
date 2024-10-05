@@ -35,7 +35,12 @@ jobs:
 
     # Paso 4: Copiar archivos generados en un directorio temporal
     - name: Move generated site to temporary directory
-      run: mv site docs  # Copio el contenido de 'site' dentro de docs (repositorio)
+      run: |
+        mv site docs  # Copio el contenido de 'site' dentro de docs (repositorio)
+        echo "=> ls -la"
+        ls -la
+        echo "=> ls -la docs"
+        ls -la docs
 
     # Paso 5: Crear la rama gh-pages y copiar los archivos desde el directorio temporal
     - name: Deploy to GitHub Pages
