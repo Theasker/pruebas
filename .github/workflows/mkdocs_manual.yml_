@@ -11,49 +11,62 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    
-    # Paso 1: Git clone del repositorio en la rama master
-    - name: Set up Git
+    # Paso 1: Clonar el repositorio en la rama master
+    - name: Checkout repository
       run: |
-        git config --global user.name "Theasker"
-        git config --global user.email "theasker@gmail.com"
-
-    - name: Clone repository manually
-      run: |
-        # git clone --branch master --single-branch https://github.com/${{ github.repository }} docs
+        # git clone --depth 1 --branch master https://github.com/${{ github.repository }} docs
         git clone https://github.com/${{ github.repository }} docs
-        echo "pwd" && pwd
-        echo "ls -la" && ls -la
-        echo "ls -la docs" && ls -la docs
+        mv docs/mkdocs.yml .  # Mover el archivo mkdocs.yml a la raíz
+        date >> docs/README.md
 
     # Paso 2: Instalar Python y MkDocs
-    - name: Install Python
+    - name: Set up Python and Install MkDocs
       run: |
         sudo apt-get update
-        sudo apt-get install -y python3 python3-pip tree
+        sudo apt-get install python3 python3-pip -y
         pip3 install mkdocs
-        # pip3 install mkdocs-material
+        # pip3 install mkdocs-material  # Si usas el tema Material para MkDocs
         pip3 install mkdocs-windmill-dark
 
     # Paso 3: Build la documentación con MkDocs
     - name: Build the documentation
       run: |
-        mv docs/mkdocs.yml .
-        tree -L 2
-        mkdocs build --site-dir ./site  # Genera los archivos del sitio en ./site
-        tree -L 2                   # Lista los archivos generados en ./site
-    
-    # Paso 4: Copiar fichero a la rama gh-pages
-    - name: Copy files to gh-pages branch
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        mkdocs build
+        ls -la
+
+    # Paso 4: Crear la rama gh-pages y copiar los archivos desde el directorio temporal
+    - name: Deploy to GitHub Pages
       run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+        echo "=> cd docs"
         cd docs
-        mv ../site .
-        echo "ls -la" && ls -la
+
+        echo "=> git clean -fd"
+        git clean -fd
+
+        echo "=> git checkout gh-pages"
         git checkout gh-pages
-        echo "ls -la" && ls -la
-        git rm -rf .
-        echo "ls -la" && ls -la
-        git checkout master -- site
+
+        echo "=> ls -la"
+        ls -la
+
+        echo "=> ls .."
+        ls ..
+
+        # echo "=> rm -rf *"
+        # rm -rf *
+
+        #echo "=> git checkout master -- site"
+        #git checkout master -- site
+        cp -r ../site/* .
         
+        echo "=> git add ."
+        git add .
+
+        echo "=> git commit -m "Deploy MkDocs to GitHub Pages""
+        git commit -m "Deploy MkDocs to GitHub Pages"
+
+        echo "=> git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages"
+        git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
