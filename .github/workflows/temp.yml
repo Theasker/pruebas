@@ -51,6 +51,9 @@ jobs:
         echo "=> ls -la"
         ls -la
 
+        echo "=> ls .."
+        ls ..
+
         echo "=> rm -rf ."
         rm -rf *
 
