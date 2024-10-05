@@ -17,7 +17,6 @@ jobs:
         # git clone --depth 1 --branch master https://github.com/${{ github.repository }} docs
         git clone https://github.com/${{ github.repository }} docs
         mv docs/mkdocs.yml .  # Mover el archivo mkdocs.yml a la raíz
-        date >> docs/README.md
 
     # Paso 2: Instalar Python y MkDocs
     - name: Set up Python and Install MkDocs
