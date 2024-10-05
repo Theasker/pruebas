@@ -36,6 +36,9 @@ jobs:
     # Paso 4: Crear la rama gh-pages y copiar los archivos desde el directorio temporal
     - name: Deploy to GitHub Pages
       run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
         echo "=> cd docs"
         cd docs
 
