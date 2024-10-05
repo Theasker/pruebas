@@ -35,13 +35,14 @@ jobs:
 
     # Paso 4: Copiar archivos generados en un directorio temporal
     - name: Move generated site to temporary directory
-      run: mv site ../site-temp  # Mover el contenido de 'site' a una carpeta temporal
+      run: mv site docs  # Copio el contenido de 'site' dentro de docs (repositorio)
 
     # Paso 5: Crear la rama gh-pages y copiar los archivos desde el directorio temporal
     - name: Deploy to GitHub Pages
       run: |
         #git config --global user.name "github-actions[bot]"
         #git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        cd docs
         git checkout gh-pages
         git rm -rf .
         git checkout master -- site
