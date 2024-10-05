@@ -33,35 +33,32 @@ jobs:
         mkdocs build
         ls -la
 
-    # Paso 4: Copiar archivos generados en un directorio temporal
-    - name: Move generated site to temporary directory
-      run: |
-        mv site docs  # Copio el contenido de 'site' dentro de docs (repositorio)
-        echo "=> ls -la"
-        ls -la
-        echo "=> ls -la docs"
-        ls -la docs
-
-    # Paso 5: Crear la rama gh-pages y copiar los archivos desde el directorio temporal
+    # Paso 4: Crear la rama gh-pages y copiar los archivos desde el directorio temporal
     - name: Deploy to GitHub Pages
       run: |
-        #git config --global user.name "github-actions[bot]"
-        #git config --global user.email "github-actions[bot]@users.noreply.github.com"
         echo "=> cd docs"
         cd docs
+
         echo "=> git clean -fd"
         git clean -fd
+
         echo "=> git checkout gh-pages"
         git checkout gh-pages
+
         echo "=> ls -la"
         ls -la
+
         echo "=> git rm -rf ."
         git rm -rf .
-        echo "=> git checkout master -- site"
-        git checkout master -- site
+
+        #echo "=> git checkout master -- site"
+        #git checkout master -- site
+        
         echo "=> git add ."
         git add .
+
         echo "=> git commit -m "Deploy MkDocs to GitHub Pages""
         git commit -m "Deploy MkDocs to GitHub Pages"
+
         echo "=> git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages"
         git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
