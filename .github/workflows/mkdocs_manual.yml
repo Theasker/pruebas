@@ -18,6 +18,16 @@ jobs:
         git clone https://github.com/${{ github.repository }} docs
         mv docs/mkdocs.yml .  # Mover el archivo mkdocs.yml a la raíz
 
+    # Paso 1.2: Creación del fecha del deploy
+    - name: Deploy date
+      run: |
+        echo "=> actualización de date"
+        cd docs
+        date > date.md
+        git add date.md
+        git commit -m "Actualización de la fecha"
+        cd ..
+
     # Paso 2: Instalar Python y MkDocs
     - name: Set up Python and Install MkDocs
       run: |
@@ -41,11 +51,6 @@ jobs:
 
         echo "=> cd docs"
         cd docs
-
-        echo "=> actualización de date"
-        date > date.md
-        git add date.md
-        git commit -m "Actualización de la fecha"
 
         echo "=> git clean -fd"
         git clean -fd
