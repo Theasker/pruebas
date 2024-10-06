@@ -14,4 +14,11 @@ plugins:
 
 theme:
   name: windmill-dark
-  include_search_page: true
+
+markdown_extensions:
+  - toc:
+      permalink: '#'
+
+extra:
+  history_buttons: false
+  version: v1.0.5
