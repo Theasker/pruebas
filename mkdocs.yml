@@ -1,7 +1,17 @@
-site_name: Mis apuntes
+site_name: Theasker documentación
+site_url: https://theasker.github.io/pruebas
+repo_url: https://github.com/Theasker/pruebas/
+repo_name: pruebas
+site_author: Theasker
+extra.article_nav_top: false
+exclude_docs: |
+  *.py
+  *temp*.*
 
 plugins:
+  lang: en
   - search
 
 theme:
   name: windmill-dark
+  include_search_page: true
