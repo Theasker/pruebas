@@ -14,7 +14,8 @@ jobs:
     # Paso 1: Clonar el repositorio en la rama master
     - name: Checkout repository
       run: |
-        # git clone --depth 1 --branch master https://github.com/${{ github.repository }} docs
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git clone https://github.com/${{ github.repository }} docs
         mv docs/mkdocs.yml .  # Mover el archivo mkdocs.yml a la raíz
 
@@ -46,9 +47,6 @@ jobs:
     # Paso 4: Crear la rama gh-pages y copiar los archivos desde el directorio temporal
     - name: Deploy to GitHub Pages
       run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
         echo "=> cd docs"
         cd docs
 
