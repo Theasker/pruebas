@@ -9,8 +9,8 @@ exclude_docs: |
   *temp*.*
 
 plugins:
-  lang: en
   - search
+  lang: es
 
 theme:
   name: windmill-dark
