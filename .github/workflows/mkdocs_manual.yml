@@ -42,6 +42,11 @@ jobs:
         echo "=> cd docs"
         cd docs
 
+        echo "=> actualización de date"
+        date >> README.md
+        git add README.md
+        git commit -m "Actualización de la fecha en README.md"
+
         echo "=> git clean -fd"
         git clean -fd
 
