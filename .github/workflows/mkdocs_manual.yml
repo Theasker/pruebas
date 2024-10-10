@@ -39,6 +39,13 @@ jobs:
         pip3 install mkdocs-windmill-dark
 
     # Paso 3: Build la documentación con MkDocs
+    - name: Build markdown TOC
+      run: |
+        cd docs
+        python createTOC.py
+        cd ..
+
+    # Paso 3: Build la documentación con MkDocs
     - name: Build the documentation
       run: |
         mkdocs build
