@@ -43,6 +43,9 @@ jobs:
       run: |
         cd docs
         python createTOC.py
+        git add -A
+        git commit -m "Create automatic markdown TOC"
+        git push
         cd ..
 
     # Paso 3: Build la documentación con MkDocs
