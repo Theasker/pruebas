@@ -14,7 +14,6 @@ jobs:
     # Paso 1: Clonar el repositorio en la rama master
     - name: Checkout repository
       run: |
-        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git clone https://github.com/${{ github.repository }} docs
