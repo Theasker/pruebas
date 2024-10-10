@@ -17,7 +17,7 @@ jobs:
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git clone https://github.com/${{ github.repository }} docs
-        mv docs/mkdocs.yml .  # Mover el archivo mkdocs.yml a la raíz
+        cp docs/mkdocs.yml .  # Mover el archivo mkdocs.yml a la raíz
 
     # Paso 1.2: Creación del fecha del deploy
     - name: Deploy date
