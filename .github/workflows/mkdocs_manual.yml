@@ -27,6 +27,7 @@ jobs:
         date > date.md
         git add date.md
         git commit -m "Actualización de la fecha"
+        git push
         cd ..
 
     # Paso 2: Instalar Python y MkDocs
