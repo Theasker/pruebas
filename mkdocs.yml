@@ -1,0 +1,22 @@
+site_name: Theasker documentación
+site_url: https://theasker.github.io/pruebas
+repo_url: https://github.com/Theasker/pruebas/
+repo_name: pruebas
+site_author: Theasker
+extra.article_nav_top: false
+exclude_docs: |
+  *.py
+  *temp*.*
+
+plugins:
+  - search
+
+theme:
+  name: windmill-dark
+
+markdown_extensions:
+  - toc:
+      permalink: '#'
+
+extra:
+  history_buttons: false
