@@ -15,7 +15,7 @@ def generate_readme(directory, depth):
         tabfile = "  " * depth_level + "  "
         #print(f"{tab} - {os.path.basename(root)} <dir>")
         if depth_level > 0:
-          arrayfile.append(f"\n{tab}* {os.path.basename(root)}")
+          arrayfile.append(f"\n{tab}* **{os.path.basename(root)}**")
         else:
           arrayfile.append(f"\n**{os.path.basename(root)}**")
         for file in sorted(files):
@@ -34,5 +34,5 @@ PATH = './'
 file = open(f"{PATH}README.md", 'w')
 for line in generate_readme(PATH, depth=3):
   file.write(line + '\n')
-  print(line + "\n")
+  print(line)
 file.close()
